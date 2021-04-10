@@ -1,0 +1,64 @@
+<main>
+  <h5>Usuarios</h5>
+  <div class="row actions">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-2">
+              <button
+                class="btn btn-success"
+                type="button"
+                (click)="onInsert()"
+              >
+                Nuevo
+              </button>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn-info" type="button" (click)="loadData()">
+                Refrescar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let item of users">
+      <div class="card">
+        <div class="card-body">
+          <span> <strong>Nombres:</strong>{{ item.name }} </span>
+          <span> <strong>Apellidos:</strong>{{ item.lastName }} </span>
+          <span>
+            <strong>Identificacion:</strong>{{ item.identification }}
+          </span>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-lg-4">
+              <button class="btn btn-info" type="button" (click)="onInfo(item.id)">
+                Ver
+              </button>
+            </div>
+            <div class="col-lg-4">
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="onUpdate(item.id)"
+              >
+                Editar
+              </button>
+            </div>
+            <div class="col-lg-4">
+              <button class="btn btn-danger" type="button" (click)="onDelete(item.id)">
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

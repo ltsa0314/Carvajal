@@ -1,0 +1,95 @@
+<main>
+  <h5>Usuarios {{ title }}</h5>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <label for="typeIdentificationId">Tipo identificacion:</label>
+          <select
+            [disabled]="isInfo"
+            class="form-control"
+            name="typeIdentificationId"
+            id="typeIdentificationId"
+            [(ngModel)]="model.typeIdentificationId"
+          >
+            <option
+              *ngFor="let item of typeIdentifications"
+              [ngValue]="item.id"
+            >
+              {{ item.description }}
+            </option>
+          </select>
+        </div>
+        <div class="col-lg-6">
+          <label for="identification">Identification:</label>
+          <input
+            [disabled]="isInfo"
+            class="form-control"
+            name="identification"
+            type="text"
+            [(ngModel)]="model.identification"
+          />
+        </div>
+        <div class="col-lg-6">
+          <label for="name">Nombres:</label>
+          <input
+            [disabled]="isInfo"
+            class="form-control"
+            name="name"
+            type="text"
+            [(ngModel)]="model.name"
+          />
+        </div>
+        <div class="col-lg-6">
+          <label for="lastName">Apellidos:</label>
+          <input
+            [disabled]="isInfo"
+            class="form-control"
+            name="lastName"
+            type="text"
+            [(ngModel)]="model.lastName"
+          />
+        </div>
+        <div class="col-lg-6">
+          <label for="email">Correo Electronico:</label>
+          <input
+            [disabled]="isInfo"
+            class="form-control"
+            name="email"
+            type="email"
+            [(ngModel)]="model.email"
+          />
+        </div>
+        <div class="col-lg-6">
+          <label for="password">Contraseña:</label>
+          <input
+            [disabled]="isInfo"
+            class="form-control"
+            name="password"
+            type="password"
+            [(ngModel)]="model.password"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div *ngIf="!isInfo" class="col-lg-2">
+          <button class="btn btn-success" type="button" (click)="onSave()">
+            Guardar
+          </button>
+        </div>
+        <div class="col-lg-2">
+          <button class="btn btn-danger" type="button" (click)="onCancel()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<pre>
+    {{ model | json }}
+</pre>
